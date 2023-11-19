@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            /* Cambiar a dirección de columna */
+            align-items: center;
+            justify-content: flex-start;
+            /* Alinear en la parte superior */
+            height: 100vh;
+            background: linear-gradient(to bottom, #3498db, #2c3e50);
+            color: white;
+        }
+        
+        .menu {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
+            /* Añadir margen en la parte inferior */
+        }
+        
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .menu-item {
+            display: inline-block;
+            padding: 10px;
+            cursor: pointer;
+            position: relative;
+            transition: background-color 0.3s ease;
+            /* Agregar transición de color */
+        }
+        
+        .menu-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .submenu {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.9);
+            position: absolute;
+            z-index: 1;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-top: 5px;
+            /* Añadir margen en la parte superior */
+        }
+        
+        .submenu li {
+            padding: 10px;
+        }
+        
+        .submenu li a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .submenu li:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+    <title>Menú Desplegable</title>
+</head>
+
+<body>
+
+    <nav class="menu">
+        <ul>
+            <li class="menu-item" onclick="toggleSubMenu('submenu1')">Inicio
+                <ul class="submenu" id="submenu1">
+                    <li><a href="#">Inicio 1</a></li>
+                    <li><a href="#">Inicio 2</a></li>
+                    <li><a href="#">Inicio 3</a></li>
+                </ul>
+            </li>
+            <li class="menu-item" onclick="toggleSubMenu('submenu2')">Categoría
+                <ul class="submenu" id="submenu2">
+                    <li><a href="#">Categoria 1</a></li>
+                    <li><a href="#">Categoria 2</a></li>
+                    <li><a href="#">Categoria 3</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">Contacto</li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleSubMenu(submenuId) {
+            var submenu = document.getElementById(submenuId);
+            submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #3498db, #2c3e50);
+            color: black;
+            /* Cambiado a color negro */
+        }
+        
+        .contact-form {
+            max-width: 400px;
+            margin: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            /* Fondo ligeramente transparente para combinar con el degradado */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-form label {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        .contact-form textarea {
+            resize: vertical;
+        }
+        
+        .contact-form button {
+            background-color: #1159df;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .contact-form button:hover {
+            background-color: #555;
+        }
+    </style>
+    <title>Formulario de Contacto</title>
+</head>
+
+<body>
+
+    <div class="contact-form">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Mensaje:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="button" onclick="validateAndSubmit()">Enviar</button>
+    </div>
+
+    <script>
+        function validateAndSubmit() {
+            var formFields = ['name', 'email', 'message'];
+            var isValid = true;
+
+            for (var field of formFields) {
+                var value = document.getElementById(field).value.trim();
+
+                if (value === '') {
+                    alert('Por favor, complete todos los campos.');
+                    isValid = false;
+                    break;
+                }
+            }
+
+            if (isValid) {
+                var name = document.getElementById('name').value;
+                var email = document.getElementById('email').value;
+                var message = document.getElementById('message').value;
+
+                alert('Formulario enviado con éxito:\n\nNombre: ' + name + '\nCorreo Electrónico: ' + email + '\nMensaje: ' + message);
+            }
+        }
+    </script>
+</body>
+
+</html>
